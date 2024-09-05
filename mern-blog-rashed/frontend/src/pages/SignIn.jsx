@@ -37,6 +37,9 @@ export default function SignIn() {
         setErrorMessage(false)
         const {token} = data.data
         localStorage.setItem("token", token)
+        const {user} = data.data
+        localStorage.setItem("user", [user._id, user.email, user.userName, user.role])
+
         navigate("/");
       }
     } catch (error) {
